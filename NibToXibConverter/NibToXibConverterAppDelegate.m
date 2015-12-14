@@ -143,7 +143,7 @@
 	NSURL *outputFileURL = [outputFileBaseURL URLByAppendingPathComponent:outputFileName];
 	
 	NSTask *theIBToolCommand = [[NSTask alloc] init];
-	theIBToolCommand.launchPath = @"/Developer/usr/bin/ibtool";
+	theIBToolCommand.launchPath = @"/usr/bin/ibtool";
 	
 	NSArray *argumentsArray = [[NSArray alloc] initWithObjects:inputFileUrl.path,@"--upgrade",@"--write",outputFileURL.path,nil];
 	theIBToolCommand.arguments = argumentsArray;
