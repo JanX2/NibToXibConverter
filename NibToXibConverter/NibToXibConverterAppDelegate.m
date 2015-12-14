@@ -17,8 +17,6 @@
 
 @implementation NibToXibConverterAppDelegate
 
-@synthesize window, inputFolderUrl, outputFolderUrl, status, converting, ibtoolCommandsArray, processedFilesCount, totalFilesCount, leftFilesCount;
-
 - (void)awakeFromNib
 {
 	self.converting = NO;
@@ -149,10 +147,8 @@
 	
 	NSArray *argumentsArray = [[NSArray alloc] initWithObjects:inputFileUrl.path,@"--upgrade",@"--write",outputFileURL.path,nil];
 	theIBToolCommand.arguments = argumentsArray;
-	[argumentsArray release];
 	
 	[self.ibtoolCommandsArray addObject:theIBToolCommand];
-	[theIBToolCommand release];
 	//[theIBToolCommand launch];
 //	[theIBToolCommand waitUntilExit];
 }
@@ -173,7 +169,6 @@
 					   NSTask *receivedTask  = (self.ibtoolCommandsArray)[index];
 					   NSString *statusString = [[NSString alloc] initWithFormat:@"%@",receivedTask.arguments.lastObject.lastPathComponent];
 					   self.status = statusString;
-					   [statusString release];
 					   [receivedTask launch];
 					   [receivedTask waitUntilExit];
 	});
