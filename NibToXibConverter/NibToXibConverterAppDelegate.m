@@ -78,7 +78,7 @@
 			// folder contains other folders so navigate
 			
 			NSFileManager *fileManager =[NSFileManager defaultManager];
-			NSArray *keys = [NSArray arrayWithObjects:NSURLIsDirectoryKey,NSURLNameKey,NSURLNameKey,nil];
+			NSArray *keys = [NSArray arrayWithObjects:NSURLIsDirectoryKey,NSURLNameKey,nil];
 			
 			NSDirectoryEnumerator *directoryEnumerator = [fileManager enumeratorAtURL:self.inputFolderUrl includingPropertiesForKeys:keys options:NSDirectoryEnumerationSkipsHiddenFiles errorHandler:^BOOL(NSURL *url, NSError *error) {
 				return YES;
